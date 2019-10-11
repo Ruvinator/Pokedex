@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import PokeGrid from './containers/PokeGrid/PokeGrid';
+import styles from './App.module.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Pokedex</header>
+    <div className={styles.AppNight}>
+      <header>Pokedex</header>
+      <PokeGrid />
     </div>
   );
 }
