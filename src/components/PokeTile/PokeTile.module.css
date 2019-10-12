@@ -1,4 +1,9 @@
-.pokeTile {
-    border: 2px rgb(100,255,255) solid;
-    margin: 1em 0.5em;
+.pokeTileNight {
+    /* border: 3px rgb(80,80,80) solid; */
+    border-radius: 1.5em;
+    margin: 0.25em 0.25em;
+}
+
+.pokeTileNight:hover {
+    background-image: radial-gradient(rgb(150,150,150), rgb(80,80,80));
 }

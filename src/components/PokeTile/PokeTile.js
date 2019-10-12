@@ -5,7 +5,7 @@ const pokeTile = props => {
     // Hard-coding directory (for now)
     const spriteDir = require('../../assets/images/sprites/black/shiny/' + props.pokeId + '.png');
     return (
-        <img src={spriteDir} alt={props.pokeId } className={styles.pokeTile} />
+        <img src={spriteDir} alt={props.pokeId } className={styles.pokeTileNight} />
     );
 }
 
