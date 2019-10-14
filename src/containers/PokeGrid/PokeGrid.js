@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
 import PokeTile from '../../components/PokeTile/PokeTile';
 import AuxComp from '../../hoc/AuxComp';
+import pokeData from '../../data/PokeData.json'
 
 class PokeGrid extends Component {
-    pokeIds = [];
     pokeTiles = [];
+    maxPokeNum = 649;
 
-    // Used to temporarily fill list of Pokemon IDs (will be replaced with JSON file)
-    fillPokeIds = max => {
-        for (let i = 1; i <= max; i++) {
-            // Pad number to match filenames (ex. 007)
-            this.pokeIds.push(String(i).padStart(3, '0'));
+    createTiles = () => {
+        let pokeKey;
+        for (let i = 1; i <= this.maxPokeNum; i++) {
+            pokeKey = String(i).padStart(3, '0');
+            this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} />);
         }
     }
 
-    createTiles = () => {
-        this.pokeIds.map(pokeId => {
-            this.pokeTiles.push(<PokeTile pokeId={pokeId} key={pokeId} />);
-        });
-    }
-
     render() {
-        this.fillPokeIds(649);  // Fills list of Pokemon IDs up to selected number
         this.createTiles();
         return (
             <AuxComp>
