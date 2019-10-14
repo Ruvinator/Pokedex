@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PokeTile from '../../components/PokeTile/PokeTile';
-import AuxComp from '../../hoc/AuxComp';
 import pokeData from '../../data/PokeData.json'
+import styles from './PokeGrid.module.css';
 
 class PokeGrid extends Component {
     pokeTiles = [];
@@ -18,9 +18,9 @@ class PokeGrid extends Component {
     render() {
         this.createTiles();
         return (
-            <AuxComp>
+            <div className={styles.pokeGrid}>
                 {this.pokeTiles}
-            </AuxComp>
+            </div>
         );
     }
 }

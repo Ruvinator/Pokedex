@@ -1,9 +1,36 @@
 .pokeTileNight {
-    /* border: 3px rgb(80,80,80) solid; */
-    border-radius: 1.5em;
+    border-radius: 0.8em;
     margin: 0.25em 0.25em;
+    width: 7.5em;
+    height: 7.5em;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
 }
 
 .pokeTileNight:hover {
     background-image: radial-gradient(rgb(150,150,150), rgb(80,80,80));
+}
+
+.typeDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.typeDiv p {
+    font-family: 'Roboto';
+    text-align: center;
+    color: rgb(50,50,50);
+    margin: 0.1em 0.1em;
+    padding: 0.1em 0.3em;
+    border-radius: 0.4em;
+    font-weight: 500;
+    font-size: 0.75em;
+    width: 3.8em;
+}
+
+img {
+    width: 80%;
+    margin: 0 0 -0.7em 0;
+    z-index: 200;
 }

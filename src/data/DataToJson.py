@@ -5,6 +5,7 @@ import json
 pokedata = pd.read_csv("./pokemon.csv")
 df_cols = ['Name', 'Type 1', 'Type 2', 'HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed', 'Generation', 'Legendary']
 dict_keys = ['name', 'type1', 'type2', 'hp', 'attack', 'defense', 'spatk', 'spdef', 'speed', 'gen', 'legendary']
+name_exceptions = ['Mega ', ' Forme', 'Primal ']
 data = {}
 count = 0
 
@@ -33,14 +34,14 @@ def row_to_dict(df_row):
 for idx, row in pokedata.iterrows():
 
     # Don't iterate on mega Pokemon, just add them as mega version of same pokemon
-    if 'Mega ' not in row['Name']:
+    if any(exp in row['Name'] for exp in name_exceptions):
+        data_key = str.zfill(str(count), 3)
+        data[data_key][row['Name']] = row_to_dict(row)
+        print('Wack: ' + row['Name'])
+    else:
         count += 1
         data_key = str.zfill(str(count), 3)  # Add leading zeros to match file names
         data[data_key] = row_to_dict(row)
-
-    else:
-        data_key = str.zfill(str(count), 3)
-        data[data_key][row['Name']] = row_to_dict(row)
 
 # Export data to .json file
 with open('PokeData.json', 'w') as outfile:

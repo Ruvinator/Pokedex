@@ -1,4 +1,5 @@
 import React from 'react';
+import { typeColors } from '../../data/TypeColors/TypeColors';
 import styles from './PokeTile.module.css';
 
 const pokeTile = props => {
@@ -6,8 +7,16 @@ const pokeTile = props => {
     try {
         // Hard-coding directory (for now)
         const spriteDir = require('../../assets/images/sprites/black/shiny/' + props.pokemonKey + '.png');
+        const style1 = {backgroundColor: typeColors[props.pokemonData['type1']]};
+        const style2 = {backgroundColor: typeColors[props.pokemonData['type2']]};
         return (
-            <img src={spriteDir} alt={props.pokemonData['name']} className={styles.pokeTileNight} />
+            <div className={styles.pokeTileNight}>
+                <img src={spriteDir} alt={props.pokemonData['name']} />
+                <div className={styles.typeDiv}>
+                    <p className={styles[props.pokemonData['type1']]} style={style1}>{props.pokemonData['type1']}</p>
+                    {props.pokemonData['type2'] ? <p className={styles[props.pokemonData['type2']]} style={style2}>{props.pokemonData['type2']}</p> : null}
+                </div>
+            </div>
         );
     }
     catch (err) {}
