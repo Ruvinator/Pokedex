@@ -37,7 +37,6 @@ for idx, row in pokedata.iterrows():
     if any(exp in row['Name'] for exp in name_exceptions):
         data_key = str.zfill(str(count), 3)
         data[data_key][row['Name']] = row_to_dict(row)
-        print('Wack: ' + row['Name'])
     else:
         count += 1
         data_key = str.zfill(str(count), 3)  # Add leading zeros to match file names

@@ -1,0 +1,9 @@
+.searchBar {
+    font-family: 'Roboto';
+    width: 30%;
+    margin: 2em 0;
+    padding: 0.7em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: rgb(230,230,230);
+}

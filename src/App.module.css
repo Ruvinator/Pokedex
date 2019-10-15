@@ -1,7 +1,13 @@
 .App {
     background-color: rgb(230,230,230);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .AppNight {
     background-color: rgb(50,50,50);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
