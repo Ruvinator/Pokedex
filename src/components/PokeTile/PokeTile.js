@@ -10,7 +10,7 @@ const pokeTile = props => {
         const style1 = {backgroundColor: typeColors[props.pokemonData['type1']]};
         const style2 = {backgroundColor: typeColors[props.pokemonData['type2']]};
         return (
-            <div className={styles.pokeTileNight}>
+            <div className={styles.pokeTileNight} onClick={props.clicked}>
                 <img src={spriteDir} alt={props.pokemonData['name']} />
                 <div className={styles.typeDiv}>
                     <p className={styles[props.pokemonData['type1']]} style={style1}>{props.pokemonData['type1']}</p>
