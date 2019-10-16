@@ -6,7 +6,8 @@ const pokeTile = props => {
     // try/catch since different generations have different cutoffs
     try {
         // Hard-coding directory (for now)
-        const spriteDir = require('../../assets/images/sprites/black/shiny/' + props.pokemonKey + '.png');
+        const shinyDir = props.isShiny ? 'shiny' : 'normal';
+        const spriteDir = require('../../assets/images/sprites/black/' + shinyDir + '/' + props.pokemonKey + '.png');
         const style1 = {backgroundColor: typeColors[props.pokemonData['type1']]};
         const style2 = {backgroundColor: typeColors[props.pokemonData['type2']]};
         return (

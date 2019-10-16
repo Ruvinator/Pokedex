@@ -1,15 +1,23 @@
+import * as actionTypes from '../actions/actionTypes';
+
 const initialState = {
-    pokemonData: {}
+    pokemonData: {},
+    showShiny: false
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ('CLICKED'):
-            console.log(action.pkmnData['name']);
+        case (actionTypes.CLICKED):
+            console.log(action.pokemonData['name']);
             return {
                 ...state,
-                pokemonData: action.pkmnData
+                pokemonData: action.pokemonData
             };
+        case (actionTypes.TOGGLE_SHINY):
+            return {
+                ...state,
+                showShiny: !state.showShiny
+            }
         default:
             return state;
     }
