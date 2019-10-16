@@ -9,7 +9,7 @@ function App (props) {
   return (
     <div className={styles.AppNight}>
       <SearchBar />
-      <button onClick={() => props.onToggleShinyPokemon()}>Toggle Shiny</button>
+      <button onClick={() => props.onToggleShinyPokemon()}>Toggle Shiny</button>>
       <PokeGrid />
     </div>
   );

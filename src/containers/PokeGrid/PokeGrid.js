@@ -6,7 +6,7 @@ import * as actionTypes from '../../store/actions/actionTypes';
 import styles from './PokeGrid.module.css';
 
 class PokeGrid extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.createTiles();
     }
@@ -15,14 +15,29 @@ class PokeGrid extends Component {
 
     // Prevent unnecessary re-rendering
     shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.showShiny !== this.props.showShiny;
+        return (
+            nextProps.showShiny  !== this.props.showShiny ||
+            nextProps.searchText !== this.props.searchText
+        );
     }
 
     createTiles = () => {
         for (let i = 1; i <= this.maxPokeNum; i++) {
             const pokeKey = String(i).padStart(3, '0');
-            this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} clicked={() => this.props.onGetClickedPokemon(pokeData[pokeKey])} />);
+            if (this.isSearchMatch(pokeData[pokeKey])) {
+                this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} clicked={() => this.props.onGetClickedPokemon(pokeData[pokeKey])} />);
+            }
         }
+    }
+    
+    isSearchMatch = pokemon => {
+        const searchPhrase = this.props.searchText.toLowerCase();
+        return (
+            pokemon['name'].toLowerCase().includes(searchPhrase)  ||
+            pokemon['type1'].toLowerCase().includes(searchPhrase) ||
+            (pokemon['type2'] !== undefined ? pokemon['type2'].toLowerCase().includes(searchPhrase) : false) ||
+            (pokemon['legendary'] && 'legendary'.includes(searchPhrase))
+        );
     }
 
     updateTiles = () => {
@@ -45,7 +60,8 @@ class PokeGrid extends Component {
 const mapStateToProps = state => {
     return {
         pokemonData: state.pokemonData,
-        showShiny: state.showShiny
+        showShiny: state.showShiny,
+        searchText: state.searchText
     };
 };
 
