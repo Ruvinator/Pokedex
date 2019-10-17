@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.TOGGLE_SHINY:
             return {
                 ...state,
-                showShiny: !state.showShiny
+                showShiny: action.toggleChecked
             }
         case actionTypes.SEARCH:
             return {

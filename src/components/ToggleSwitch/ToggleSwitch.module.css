@@ -1,0 +1,42 @@
+/* Hide check box */
+.CheckBox {display: none;}
+
+/* Registers input when click anywhere in label */
+.Label {
+    position: relative;
+    width: 3.3em;
+    height: 1.8em;
+}
+
+.Span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(230,230,230);
+    border-radius: 0.5em;
+    transition: 0.5s;
+}
+
+.Span:before {
+    position: absolute;
+    content: "";
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0.15em 0 0 0.15em;
+    border-radius: 0.5em;
+    background-color: rgb(50,50,50);
+    transition: 0.5s;
+}
+
+.CheckBox:checked + .Span {
+    background-color: rgb(200,50,50);
+}
+
+.CheckBox:checked + .Span:before {
+    -webkit-transform: translateX(1.5em);
+    -ms-transform: translateX(1.5em);
+    transform: translateX(1.5em);
+}
+

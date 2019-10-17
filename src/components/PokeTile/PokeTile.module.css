@@ -1,5 +1,4 @@
 .pokeTileNight {
-    border-radius: 0.8em;
     margin: 0.25em 0.25em;
     width: 7.5em;
     height: 7.5em;
@@ -10,7 +9,7 @@
 }
 
 .pokeTileNight:hover {
-    background-image: radial-gradient(rgb(150,150,150), rgb(80,80,80));
+    background-image: radial-gradient(rgb(200,200,200) 0%, rgb(50,50,50) 65%);
 }
 
 .typeDiv {
@@ -34,4 +33,10 @@ img {
     width: 80%;
     margin: 0 0 -0.7em 0;
     z-index: 200;
+
+    /* Disable image dragging */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
