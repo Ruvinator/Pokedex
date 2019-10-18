@@ -9,7 +9,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.CLICKED:
-            console.log(action.pokemonData['name']);
             return {
                 ...state,
                 pokemonData: action.pokemonData

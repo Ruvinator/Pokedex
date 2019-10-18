@@ -1,0 +1,31 @@
+.PokePopup {
+    position: absolute;
+    background-color: rgb(50,50,50);
+    box-shadow: 0 0.2em 1em rgb(20,20,20);
+    color: rgb(230,230,230);
+    width: 40%;
+    height: 50%;
+    top: 25%;
+    left: 30%;
+}
+
+.FullPopup {
+    position: absolute;
+    z-index: 400;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.Invisible {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s;
+}

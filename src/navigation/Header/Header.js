@@ -7,7 +7,6 @@ import styles from './Header.module.css';
 
 const header = props => {
     const handleShinyToggle = e => {
-        console.log(e.target.checked);
         props.onToggleShinyPokemon(e.target.checked);
     }
 
