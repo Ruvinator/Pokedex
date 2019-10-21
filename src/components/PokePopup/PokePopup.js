@@ -28,14 +28,23 @@ class pokePopup extends PureComponent {
     }
 
     render() {
-        return (
-            <div className={this.popupVisible ? styles.FullPopup : styles.Invisible}>
-                <Backdrop backdropClicked={this.dismissPopup} />
-                <div className={styles.PokePopup}>
-                    <h1>{this.props.pokemonData['name']}</h1>
+        try {
+            // Hard-coding directory (for now)
+            const shinyDir = this.props.showShiny ? 'shiny' : 'normal';
+            const spriteDir = require('../../assets/images/sprites/' + shinyDir + '/' + this.props.pokemonKey + '.png');
+            return (
+                <div className={this.popupVisible ? styles.FullPopup : styles.Invisible}>
+                    <Backdrop backdropClicked={this.dismissPopup} />
+                    <div className={styles.PokePopup}>
+                        <h1>{this.props.pokemonData['name']}</h1>
+                        <img src={spriteDir} alt='' />
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        catch (err) { }
+
+        return null;
     }
 }
 
@@ -43,7 +52,8 @@ class pokePopup extends PureComponent {
 const mapStateToProps = state => {
     return {
         pokemonData: state.pokemonData,
-        showShiny: state.showShiny
+        pokemonKey:  state.pokemonKey,
+        showShiny:   state.showShiny
     };
 };
 

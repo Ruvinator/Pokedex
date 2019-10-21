@@ -25,13 +25,13 @@ class PokeGrid extends Component {
         for (let i = 1; i <= this.maxPokeNum; i++) {
             const pokeKey = String(i).padStart(3, '0');
             if (this.isSearchMatch(pokeData[pokeKey])) {
-                this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} clicked={() => this.clickTileHandler(pokeData[pokeKey])} />);
+                this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} clicked={() => this.clickTileHandler(pokeData[pokeKey], pokeKey)} />);
             }
         }
     }
 
-    clickTileHandler = (pokeClicked) => {
-        this.props.onGetClickedPokemon(pokeClicked);
+    clickTileHandler = (pokeClicked, pokeClickedKey) => {
+        this.props.onGetClickedPokemon(pokeClicked, pokeClickedKey);
     }
     
     isSearchMatch = pokemon => {
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
 // Actions to dispatch
 const mapDispatchToProps = dispatch => {
     return {
-        onGetClickedPokemon: (clickData) => dispatch({ type: actionTypes.CLICKED, pokemonData: clickData })
+        onGetClickedPokemon: (clickData, clickKey) => dispatch({ type: actionTypes.CLICKED, pokemonData: clickData, pokemonKey: clickKey })
     };
 };
 

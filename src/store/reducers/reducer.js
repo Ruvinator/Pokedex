@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     pokemonData: {},
+    pokemonKey: '',
     showShiny: false,
     searchText: ''
 }
@@ -11,7 +12,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CLICKED:
             return {
                 ...state,
-                pokemonData: action.pokemonData
+                pokemonData: action.pokemonData,
+                pokemonKey: action.pokemonKey
             };
         case actionTypes.TOGGLE_SHINY:
             return {
