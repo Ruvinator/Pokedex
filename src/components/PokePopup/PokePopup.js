@@ -29,21 +29,32 @@ class pokePopup extends PureComponent {
 
     render() {
         try {
-            // Hard-coding directory (for now)
+            let popupContents;
             const shinyDir = this.props.showShiny ? 'shiny' : 'normal';
-            const spriteDir = require('../../assets/images/sprites/' + shinyDir + '/' + this.props.pokemonKey + '.png');
-            return (
-                <div className={this.popupVisible ? styles.FullPopup : styles.Invisible}>
-                    <Backdrop backdropClicked={this.dismissPopup} />
+
+            // Add if statement to fix popup animation. Otherwise the `try` fails on popup dismiss (pokemonKey = undefined).
+            if (this.popupVisible) {
+                const spriteDir = require('../../assets/images/sprites/' + shinyDir + '/' + this.props.pokemonKey + '.png');
+                popupContents = (
                     <div className={styles.PokePopup}>
                         <h1>{this.props.pokemonData['name']}</h1>
                         <img src={spriteDir} alt='' />
                     </div>
+                );
+            }
+            else {
+                popupContents = (<div className={styles.PokePopup} />)
+            }
+            console.log('Triggered popup for ' + this.props.pokemonData['name']);
+            return (
+                <div className={this.popupVisible ? styles.FullPopup : styles.Invisible}>
+                    <Backdrop backdropClicked={this.dismissPopup} />
+                    {popupContents}
                 </div>
             );
         }
         catch (err) { }
-
+        console.log('Woah why??');
         return null;
     }
 }
@@ -52,8 +63,8 @@ class pokePopup extends PureComponent {
 const mapStateToProps = state => {
     return {
         pokemonData: state.pokemonData,
-        pokemonKey:  state.pokemonKey,
-        showShiny:   state.showShiny
+        pokemonKey: state.pokemonKey,
+        showShiny: state.showShiny
     };
 };
 
