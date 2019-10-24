@@ -5,10 +5,8 @@
     color: rgb(230,230,230);
     width: 40%;
     min-width: 40em;
-    min-height: 24em;
     max-width: 50em;
-    max-height: 30em;
-    height: 50%;
+    height: 20em;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -38,6 +36,15 @@
     transition: 0.5s;
 }
 
-.PokePopup img {
-    width: 35%;
+.RadarChartView {
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.PopupSprite {
+    width: 13em;
+    height: 13em;
+    margin-right: 5em;
 }

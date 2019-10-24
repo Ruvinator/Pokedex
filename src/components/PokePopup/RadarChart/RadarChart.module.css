@@ -1,0 +1,9 @@
+.RadarOutline {
+    display: inline-block;
+    float: left;
+}
+
+.RadarOutline img {
+    width: 10em;
+    margin-top: 1em;
+}

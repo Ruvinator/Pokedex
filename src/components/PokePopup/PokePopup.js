@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Backdrop from './Backdrop/Backdrop';
+import RadarChart from './RadarChart/RadarChart';
 import * as actionTypes from '../../store/actions/actionTypes';
 import styles from './PokePopup.module.css';
 
@@ -38,14 +39,17 @@ class pokePopup extends PureComponent {
                 popupContents = (
                     <div className={styles.PokePopup}>
                         <h1>{this.props.pokemonData['name']}</h1>
-                        <img src={spriteDir} alt='' />
+                        <div className={styles.RadarChartView}>
+                            <img className={styles.PopupSprite} src={spriteDir} alt='' />
+                            <RadarChart activePokemon={this.props.pokemonData} />
+                        </div>
                     </div>
                 );
             }
             else {
                 popupContents = (<div className={styles.PokePopup} />)
             }
-            console.log('Triggered popup for ' + this.props.pokemonData['name']);
+
             return (
                 <div className={this.popupVisible ? styles.FullPopup : styles.Invisible}>
                     <Backdrop backdropClicked={this.dismissPopup} />
@@ -54,7 +58,7 @@ class pokePopup extends PureComponent {
             );
         }
         catch (err) { }
-        console.log('Woah why??');
+
         return null;
     }
 }
