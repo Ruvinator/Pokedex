@@ -1,9 +1,45 @@
-.RadarOutline {
+.RadarChart {
     display: inline-block;
     float: left;
 }
 
-.RadarOutline img {
+.RadarOutline {
     width: 10em;
     margin-top: 1em;
+}
+
+.Node {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+}
+
+.HP {
+    top: 10px;
+    left: 10px;
+}
+
+.Atk {
+    top: 20px;
+    left: 20px;
+}
+
+.Def {
+    top: 30px;
+    left: 30px;
+}
+
+.SpA {
+    top: 40px;
+    left: 40px;
+}
+
+.SpD {
+    top: 50px;
+    left: 50px;
+}
+
+.Speed {
+    top: 60px;
+    left: 60px;
 }
