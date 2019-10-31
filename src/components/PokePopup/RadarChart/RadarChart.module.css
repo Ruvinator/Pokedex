@@ -10,36 +10,36 @@
 
 .Node {
     position: absolute;
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
 }
 
 .HP {
-    top: 10px;
-    left: 10px;
+    top: 23.3%;
+    left: 70.1%;
 }
 
 .Atk {
-    top: 20px;
-    left: 20px;
+    top: 35.9%;
+    left: 81.2%;
 }
 
 .Def {
-    top: 30px;
-    left: 30px;
+    top: 61.5%;
+    left: 81.2%;
 }
 
 .SpA {
-    top: 40px;
-    left: 40px;
+    top: 35.9%;
+    left: 59%;
 }
 
 .SpD {
-    top: 50px;
-    left: 50px;
+    top: 61.5%;
+    left: 59%;
 }
 
 .Speed {
-    top: 60px;
-    left: 60px;
+    top: 74.4%;
+    left: 70.1%;
 }
