@@ -7,12 +7,12 @@ class RadarChart extends PureComponent {
     render() {
         const assetsDir    = '';
         const radarDir     = require('../../../assets/images/RadarChart/RadarChartFrame.svg');
-        const nodeHPDir    = require('../../../assets/images/RadarChart/NodeHP.png');
-        const nodeAtkDir   = require('../../../assets/images/RadarChart/NodeAtk.png');
-        const nodeDefDir   = require('../../../assets/images/RadarChart/NodeDef.png');
-        const nodeSpADir   = require('../../../assets/images/RadarChart/NodeSpA.png');
-        const nodeSpDDir   = require('../../../assets/images/RadarChart/NodeSpD.png');
-        const nodeSpeedDir = require('../../../assets/images/RadarChart/NodeSpeed.png');
+        const nodeHPDir    = require('../../../assets/images/RadarChart/NodeHPText.png');
+        const nodeAtkDir   = require('../../../assets/images/RadarChart/NodeAtkText.png');
+        const nodeDefDir   = require('../../../assets/images/RadarChart/NodeDefText.png');
+        const nodeSpADir   = require('../../../assets/images/RadarChart/NodeSpAText.png');
+        const nodeSpDDir   = require('../../../assets/images/RadarChart/NodeSpDText.png');
+        const nodeSpeedDir = require('../../../assets/images/RadarChart/NodeSpeedText.png');
         return (
             <div className={styles.RadarChart}>
                 <img src={radarDir}     alt='' className={styles.RadarOutline} />
