@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import styles from './RadarChart.module.css';
 
+import RadarStats from './RadarStats/RadarStats';
+
 class RadarChart extends PureComponent {
     render() {
         const assetsDir    = '';
@@ -20,6 +22,7 @@ class RadarChart extends PureComponent {
                 <img src={nodeSpADir}   alt='' className={[styles.Node,   styles.SpA].join(' ')} />
                 <img src={nodeSpDDir}   alt='' className={[styles.Node,   styles.SpD].join(' ')} />
                 <img src={nodeSpeedDir} alt='' className={[styles.Node, styles.Speed].join(' ')} />
+                <RadarStats />
             </div>
         )
     }
