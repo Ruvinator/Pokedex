@@ -22,10 +22,18 @@ class PokeGrid extends Component {
     }
 
     createTiles = () => {
+        let maxStatsInitialized = false;
+        if (this.props.pokemonMaxStats['HP'] > 0) {
+            maxStatsInitialized = true;
+        }
+
         for (let i = 1; i <= this.maxPokeNum; i++) {
             const pokeKey = String(i).padStart(3, '0');
             if (this.isSearchMatch(pokeData[pokeKey])) {
                 this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} clicked={() => this.clickTileHandler(pokeData[pokeKey], pokeKey)} />);
+                if (!maxStatsInitialized) {
+                    this.props.onCheckMaxStats(pokeData[pokeKey]);
+                }
             }
         }
     }
@@ -63,7 +71,7 @@ class PokeGrid extends Component {
 // Accesses global (redux) state for properties this component is interested in
 const mapStateToProps = state => {
     return {
-        pokemonData: state.pokemonData,
+        pokemonMaxStats: state.pokemonMaxStats,
         showShiny: state.showShiny,
         searchText: state.searchText
     };
@@ -72,7 +80,8 @@ const mapStateToProps = state => {
 // Actions to dispatch
 const mapDispatchToProps = dispatch => {
     return {
-        onGetClickedPokemon: (clickData, clickKey) => dispatch({ type: actionTypes.CLICKED, pokemonData: clickData, pokemonKey: clickKey })
+        onGetClickedPokemon: (clickData, clickKey) => dispatch({ type: actionTypes.CLICKED, pokemonData: clickData, pokemonKey: clickKey }),
+        onCheckMaxStats:     (checkData)           => dispatch({ type: actionTypes.UPDATE_MAX, pokemonData: checkData})
     };
 };
 
