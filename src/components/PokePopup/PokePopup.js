@@ -35,12 +35,14 @@ class pokePopup extends PureComponent {
 
             // Add if statement to fix popup animation. Otherwise the `try` fails on popup dismiss (pokemonKey = undefined).
             if (this.popupVisible) {
-                const spriteDir = require('../../assets/images/sprites/' + shinyDir + '/' + this.props.pokemonKey + '.png');
+                const spriteDir = require('../../assets/images/sprites/animated/' + this.props.pokemonKey + (this.props.showShiny ? 's' : '') + '.gif');
                 popupContents = (
                     <div className={styles.PokePopup}>
                         <h1>{this.props.pokemonData['name']}</h1>
                         <div className={styles.RadarChartView}>
-                            <img className={styles.PopupSprite} src={spriteDir} alt='' />
+                            <div className={styles.PopupSpriteContainer}>
+                                <img className={styles.PopupSprite} src={spriteDir} alt='' />
+                            </div>
                             <RadarChart activePokemon={this.props.pokemonData} />
                         </div>
                     </div>

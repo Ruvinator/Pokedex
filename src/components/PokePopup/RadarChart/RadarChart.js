@@ -5,7 +5,6 @@ import RadarStats from './RadarStats/RadarStats';
 
 class RadarChart extends PureComponent {
     render() {
-        const assetsDir    = '';
         const radarDir     = require('../../../assets/images/RadarChart/RadarChartFrame.svg');
         const nodeHPDir    = require('../../../assets/images/RadarChart/NodeHPText.png');
         const nodeAtkDir   = require('../../../assets/images/RadarChart/NodeAtkText.png');

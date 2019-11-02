@@ -41,8 +41,21 @@
     justify-content: center;
 }
 
-.PopupSprite {
+.PopupSpriteContainer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 10em;
     width: 13em;
-    height: 13em;
+    margin-top: 0.8em;
     margin-right: 5em;
+    background-color: rgb(30,30,30);
+    border-radius: 1em;
+}
+
+.PopupSprite {
+    margin-top: -0.8em;
+    max-height: 9em;
+    width: auto;
 }

@@ -30,7 +30,7 @@ class PokeGrid extends Component {
         for (let i = 1; i <= this.maxPokeNum; i++) {
             const pokeKey = String(i).padStart(3, '0');
             if (this.isSearchMatch(pokeData[pokeKey])) {
-                this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} clicked={() => this.clickTileHandler(pokeData[pokeKey], pokeKey)} />);
+                this.pokeTiles.push(<PokeTile pokemonData={pokeData[pokeKey]} pokemonKey={pokeKey} key={pokeKey} isShiny={this.props.showShiny} isAnimated={this.props.showAnimated} clicked={() => this.clickTileHandler(pokeData[pokeKey], pokeKey)} />);
                 if (!maxStatsInitialized) {
                     this.props.onCheckMaxStats(pokeData[pokeKey]);
                 }
@@ -73,6 +73,7 @@ const mapStateToProps = state => {
     return {
         pokemonMaxStats: state.pokemonMaxStats,
         showShiny: state.showShiny,
+        showAnimated: state.showAnimated,
         searchText: state.searchText
     };
 };
