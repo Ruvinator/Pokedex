@@ -31,7 +31,6 @@ class pokePopup extends PureComponent {
     render() {
         try {
             let popupContents;
-            const shinyDir = this.props.showShiny ? 'shiny' : 'normal';
 
             // Add if statement to fix popup animation. Otherwise the `try` fails on popup dismiss (pokemonKey = undefined).
             if (this.popupVisible) {
